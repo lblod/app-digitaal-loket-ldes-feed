@@ -1,0 +1,22 @@
+version: '3.7'
+
+
+x-logging:
+  &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  fragmentation-producer:
+    image: redpencil/fragmentation-producer:latest
+    environment:
+      FOLDER_DEPTH: 1
+      PAGE_RESOURCES_COUNT: 10
+      LDES_STREAM_PREFIX: 'http://mu.semte.ch/streams/'
+      TIME_TREE_RELATION_PATH: 'http://www.w3.org/ns/prov#generatedAtTime'
+      CACHE_SIZE: 10
+      BASE_FOLDER: './data'
+      DOMAIN_NAME: 'http://localhost:3000/'
+      ENABLE_AUTH: false

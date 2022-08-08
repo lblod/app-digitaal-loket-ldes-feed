@@ -10,13 +10,24 @@ x-logging:
 
 services:
   fragmentation-producer:
-    image: redpencil/fragmentation-producer:0.1.1
+    image: redpencil/fragmentation-producer:0.1.2
     environment:
       FOLDER_DEPTH: 1
       PAGE_RESOURCES_COUNT: 10
       LDES_STREAM_PREFIX: 'http://mu.semte.ch/streams/'
       TIME_TREE_RELATION_PATH: 'http://www.w3.org/ns/prov#generatedAtTime'
       CACHE_SIZE: 10
-      BASE_FOLDER: './data'
-      DOMAIN_NAME: 'http://localhost:3000/'
+      DATA_FOLDER: '/data'
       ENABLE_AUTH: false
+    volumes:
+      - './data/ldes-feed/:/data/'
+    ports:
+      - 3000:3000
+  ipdc-ldes-consumer:
+    image: lblod/ipdc-ldes-consumer-service:0.1.2
+    environment:
+      CRON_PATTERN: '0 * * * * *'
+      LDES_ENDPOINT_VIEW: 'http://fragmentation-producer:3000/test/1'
+      DATA_FOLDER: '/data'
+    volumes:
+      - './data/consumer-state/:/data/'

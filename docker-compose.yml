@@ -10,7 +10,7 @@ x-logging:
 
 services:
   fragmentation-producer:
-    image: redpencil/fragmentation-producer:latest
+    image: redpencil/fragmentation-producer:0.1.0
     environment:
       FOLDER_DEPTH: 1
       PAGE_RESOURCES_COUNT: 10

@@ -24,7 +24,7 @@ services:
     ports:
       - 3000:3000
   ipdc-ldes-consumer:
-    image: lblod/ipdc-ldes-consumer-service:0.1.2
+    image: lblod/ipdc-ldes-consumer-service:0.1.3
     environment:
       CRON_PATTERN: '0 * * * * *'
       LDES_ENDPOINT_VIEW: 'http://fragmentation-producer:3000/test/1'

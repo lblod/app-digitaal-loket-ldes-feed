@@ -14,7 +14,7 @@ services:
     environment:
       FOLDER_DEPTH: 1
       PAGE_RESOURCES_COUNT: 10
-      LDES_STREAM_PREFIX: 'http://mu.semte.ch/streams/'
+      LDES_STREAM_PREFIX: 'http://data.lblod.info/streams/lpdc/'
       TIME_TREE_RELATION_PATH: 'http://www.w3.org/ns/prov#generatedAtTime'
       CACHE_SIZE: 10
       DATA_FOLDER: '/data'

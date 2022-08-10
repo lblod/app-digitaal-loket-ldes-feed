@@ -1,4 +1,9 @@
 services:
   fragmentation-producer:
     ports:
-      - 3000:3000
+      - 80:80
+  ipdc-ldes-consumer:
+    environment:
+      CRON_PATTERN: '0 * * * * *'
+      LDES_ENDPOINT_VIEW: 'http://fragmentation-producer/test/1'
+      JSON_ENDPOINT: 'https://ipdc.ipdc.tni-vlaanderen.be/api/abb/instanties'

@@ -22,7 +22,7 @@ services:
     volumes:
       - './data/ldes-feed/:/data/'
   ipdc-ldes-consumer:
-    image: lblod/ipdc-ldes-consumer-service:0.1.4
+    image: lblod/ipdc-ldes-consumer-service:0.2.0
     environment:
       DATA_FOLDER: '/data'
     volumes:
